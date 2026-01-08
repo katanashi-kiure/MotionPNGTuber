@@ -22,7 +22,10 @@ dependencies = [
 ]
 
 [tool.uv]
-no-build-isolation-package = ["chumpy"]
+override-dependencies = [
+    # headless版を無効化してGUI版のopencv-pythonを使用
+    "opencv-python-headless>=4.5.4.58 ; sys_platform == 'never'",
+]
 extra-index-url = [
     "https://download.pytorch.org/whl/cu117",
 ]
@@ -30,3 +33,6 @@ index-strategy = "unsafe-best-match"
 
 [tool.uv.sources]
 mmcv-full = { url = "https://download.openmmlab.com/mmcv/dist/cu117/torch1.13.0/mmcv_full-1.7.0-cp310-cp310-win_amd64.whl" }
+
+[tool.uv.extra-build-dependencies]
+chumpy = ["wheel", "pip", "setuptools"]
