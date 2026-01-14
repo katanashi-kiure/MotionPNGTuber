@@ -128,6 +128,7 @@ cd deps
 curl -L https://github.com/open-mmlab/mmcv/archive/refs/tags/v1.7.0.tar.gz -o mmcv-1.7.0.tar.gz
 tar xzf mmcv-1.7.0.tar.gz && cd mmcv-1.7.0
 MMCV_WITH_OPS=1 FORCE_CUDA=0 ../../.venv/bin/python setup.py develop
+MMCV_WITH_OPS=1 FORCE_CUDA=0 ../../.venv/bin/python setup.py build_ext --inplace
 cd ../..
 ```
 
